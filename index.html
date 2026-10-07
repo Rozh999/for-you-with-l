@@ -3,12 +3,859 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="NFT Marketplace UI. Collect, buy and sell art from more than 20k NFT artists."
+    />
 
-    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/css/style.css" />
 
-    <script type="module" src="src/js/script.js"></script>
+    <script type="module" src="/src/js/script.js"></script>
 
     <title>NFT Marketplace | Discover Digital Art & Collect NFTs</title>
   </head>
-  <body></body>
+  <body>
+    <!-- ================= HEADER ================= -->
+    <header
+      id="site-header"
+      class="bg-bg sticky top-0 z-50 transition-shadow duration-300"
+    >
+      <div
+        class="flex h-[54px] items-center justify-between px-[30px] md:h-[100px] lg:px-[50px]"
+      >
+        <a
+          href="/"
+          class="flex items-center gap-2.5 font-mono text-base font-bold whitespace-nowrap md:text-xl"
+        >
+          <svg
+            class="text-accent size-6 md:size-8"
+            viewBox="0 0 32 32"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 14v12h22V14" />
+            <path
+              d="M3 11l2-6h22l2 6c0 2-1.5 3.5-3.5 3.5S22 13 22 11c0 2-1.5 3.5-3.5 3.5S15 13 15 11c0 2-1.5 3.5-3.5 3.5S8 13 8 11c0 2-1.5 3.5-3.5 3.5S1 13 1 11"
+            />
+            <path d="M13 26v-7h6v7" />
+          </svg>
+          <span>NFT Marketplace</span>
+        </a>
+
+        <!-- Desktop navigation -->
+        <nav
+          class="hidden items-center gap-0 whitespace-nowrap md:flex lg:gap-2.5"
+          aria-label="Primary"
+        >
+          <a
+            href="#discover"
+            class="hover:text-accent px-3 py-3 text-sm font-semibold lg:px-5 lg:text-base"
+            >Marketplace</a
+          >
+          <a
+            href="#top-creators"
+            class="hover:text-accent px-3 py-3 text-sm font-semibold lg:px-5 lg:text-base"
+            >Rankings</a
+          >
+          <a
+            href="#how-it-works"
+            class="hover:text-accent px-3 py-3 text-sm font-semibold lg:px-5 lg:text-base"
+            >Connect a wallet</a
+          >
+          <a
+            href="/signup.html"
+            class="btn-primary ml-2.5 h-[50px] px-5 lg:h-[60px] lg:px-[30px]"
+          >
+            <svg
+              class="size-5"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="10" cy="7" r="4" />
+              <path d="M3 18c1.2-3.2 3.8-5 7-5s5.8 1.8 7 5" />
+            </svg>
+            Sign Up
+          </a>
+        </nav>
+
+        <!-- Hamburger (mobile) -->
+        <button
+          id="menu-toggle"
+          type="button"
+          class="flex size-10 items-center justify-center text-white md:hidden"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg
+            class="size-7"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path data-icon="open" d="M4 7h16M4 12h16M4 17h16" />
+            <path data-icon="close" class="hidden" d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <nav
+        id="mobile-menu"
+        class="mobile-menu border-bg-2 bg-bg absolute inset-x-0 top-full flex flex-col gap-2 border-t px-[30px] pt-4 pb-6 md:hidden"
+        data-open="false"
+        aria-label="Mobile"
+      >
+        <a
+          href="#discover"
+          class="hover:bg-bg-2 rounded-xl px-4 py-3 font-semibold"
+          >Marketplace</a
+        >
+        <a
+          href="#top-creators"
+          class="hover:bg-bg-2 rounded-xl px-4 py-3 font-semibold"
+          >Rankings</a
+        >
+        <a
+          href="#how-it-works"
+          class="hover:bg-bg-2 rounded-xl px-4 py-3 font-semibold"
+          >Connect a wallet</a
+        >
+        <a href="/signup.html" class="btn-primary mt-2 h-[50px] w-full"
+          >Sign Up</a
+        >
+      </nav>
+    </header>
+
+    <main>
+      <!-- ================= HERO ================= -->
+      <section id="hero" class="py-10 md:py-20">
+        <div
+          class="container-x grid grid-cols-1 items-center gap-[30px] md:grid-cols-2"
+        >
+          <div class="order-1">
+            <h1
+              class="text-[28px] leading-tight font-semibold capitalize md:text-[38px] lg:text-[67px]"
+            >
+              Discover Digital Art &amp; Collect NFTs
+            </h1>
+            <p class="mt-5 text-base capitalize md:text-[22px] lg:mt-[30px]">
+              NFT Marketplace UI Created With Anima For Figma. Collect, Buy And
+              Sell Art From More Than 20k NFT Artists.
+            </p>
+
+            <a
+              href="#discover"
+              class="btn-primary mt-[30px] hidden w-auto md:inline-flex"
+            >
+              <svg
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M4 12l4 4 5-5c3-3 4-7 4-9-2 0-6 1-9 4z" />
+                <path d="M6 10l-3 1 2 2M10 14l-1 3 2-2" />
+                <circle cx="13" cy="7" r="1" />
+              </svg>
+              Get Started
+            </a>
+
+            <div
+              class="mt-[30px] hidden grid-cols-3 gap-[30px] md:grid lg:max-w-[420px]"
+            >
+              <div>
+                <p class="font-mono text-[22px] font-bold lg:text-[28px]">
+                  240k+
+                </p>
+                <p class="text-base lg:text-[24px]">Total Sale</p>
+              </div>
+              <div>
+                <p class="font-mono text-[22px] font-bold lg:text-[28px]">
+                  100k+
+                </p>
+                <p class="text-base lg:text-[24px]">Auctions</p>
+              </div>
+              <div>
+                <p class="font-mono text-[22px] font-bold lg:text-[28px]">
+                  240k+
+                </p>
+                <p class="text-base lg:text-[24px]">Artists</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero card -->
+          <a
+            href="#discover"
+            class="bg-bg-2 order-2 block overflow-hidden rounded-[20px]"
+          >
+            <img
+              src="/assets/images/nfts/distant-galaxy.png"
+              alt="Space Walking NFT artwork"
+              class="aspect-[510/401] w-full object-cover"
+              width="510"
+              height="401"
+            />
+            <div class="p-5">
+              <h3 class="text-[22px] font-semibold">Space Walking</h3>
+              <div class="mt-2.5 flex items-center gap-3">
+                <img
+                  src="/assets/images/creators/animakid.png"
+                  alt=""
+                  class="size-6 rounded-full object-cover"
+                  width="24"
+                  height="24"
+                />
+                <span class="text-base">Animakid</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Mobile-only CTA + stats -->
+          <div class="order-3 md:hidden">
+            <a href="#discover" class="btn-primary w-full">
+              <svg
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M4 12l4 4 5-5c3-3 4-7 4-9-2 0-6 1-9 4z" />
+                <path d="M6 10l-3 1 2 2M10 14l-1 3 2-2" />
+                <circle cx="13" cy="7" r="1" />
+              </svg>
+              Get Started
+            </a>
+            <div class="mt-[30px] grid grid-cols-3 gap-5">
+              <div>
+                <p class="font-mono text-[22px] font-bold">240k+</p>
+                <p class="text-base">Total Sale</p>
+              </div>
+              <div>
+                <p class="font-mono text-[22px] font-bold">100k+</p>
+                <p class="text-base">Auctions</p>
+              </div>
+              <div>
+                <p class="font-mono text-[22px] font-bold">240k+</p>
+                <p class="text-base">Artists</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TRENDING COLLECTION ================= -->
+      <section id="trending" class="py-10 md:py-20">
+        <div class="container-x">
+          <h2 class="section-title">Trending Collection</h2>
+          <p class="section-subtitle">
+            Checkout Our Weekly Updated Trending Collection.
+          </p>
+
+          <div
+            id="collections"
+            class="mt-10 grid grid-cols-1 gap-[30px] md:mt-[60px] md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(3)]:hidden lg:[&>*:nth-child(3)]:block"
+            aria-live="polite"
+          ></div>
+        </div>
+      </section>
+
+      <!-- ================= TOP CREATORS ================= -->
+      <section id="top-creators" class="py-10 md:py-20">
+        <div class="container-x">
+          <div
+            class="flex flex-col gap-[30px] md:flex-row md:items-end md:justify-between"
+          >
+            <div>
+              <h2 class="section-title">Top Creators</h2>
+              <p class="section-subtitle">
+                Checkout Top Rated Creators On The NFT Marketplace
+              </p>
+            </div>
+            <a href="#top-creators" class="btn-outline hidden md:inline-flex">
+              <svg
+                class="text-accent size-5"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M4 12l4 4 5-5c3-3 4-7 4-9-2 0-6 1-9 4z" />
+                <path d="M6 10l-3 1 2 2M10 14l-1 3 2-2" />
+                <circle cx="13" cy="7" r="1" />
+              </svg>
+              View Rankings
+            </a>
+          </div>
+
+          <div
+            id="creators"
+            class="mt-10 grid grid-cols-1 gap-5 md:mt-[60px] md:grid-cols-2 md:gap-[30px] lg:grid-cols-4"
+            aria-live="polite"
+          ></div>
+
+          <a
+            href="#top-creators"
+            class="btn-outline mt-[30px] w-full md:hidden"
+          >
+            <svg
+              class="text-accent size-5"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 12l4 4 5-5c3-3 4-7 4-9-2 0-6 1-9 4z" />
+              <path d="M6 10l-3 1 2 2M10 14l-1 3 2-2" />
+              <circle cx="13" cy="7" r="1" />
+            </svg>
+            View Rankings
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= BROWSE CATEGORIES ================= -->
+      <section id="categories" class="py-10 md:py-20">
+        <div class="container-x">
+          <h2 class="section-title">Browse Categories</h2>
+
+          <div
+            id="categories-grid"
+            class="mt-10 grid grid-cols-2 gap-5 md:mt-[60px] md:grid-cols-4 md:gap-[30px]"
+            aria-live="polite"
+          ></div>
+        </div>
+      </section>
+
+      <!-- ================= DISCOVER MORE NFTS ================= -->
+      <section id="discover" class="py-10 md:py-20">
+        <div class="container-x">
+          <div
+            class="flex flex-col gap-[30px] md:flex-row md:items-end md:justify-between"
+          >
+            <div>
+              <h2 class="section-title">Discover More NFTs</h2>
+              <p class="section-subtitle">Explore New Trending NFTs</p>
+            </div>
+            <a href="#discover" class="btn-outline hidden md:inline-flex">
+              <svg
+                class="text-accent size-5"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M1 10s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z" />
+                <circle cx="10" cy="10" r="3" />
+              </svg>
+              See All
+            </a>
+          </div>
+
+          <div
+            id="nfts"
+            class="mt-10 grid grid-cols-1 gap-[30px] md:mt-[60px] md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(3)]:hidden lg:[&>*:nth-child(3)]:block"
+            aria-live="polite"
+          ></div>
+
+          <a href="#discover" class="btn-outline mt-[30px] w-full md:hidden">
+            <svg
+              class="text-accent size-5"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M1 10s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z" />
+              <circle cx="10" cy="10" r="3" />
+            </svg>
+            See All
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= NFT HIGHLIGHT + COUNTDOWN ================= -->
+      <section
+        id="highlight"
+        class="relative mt-10 flex min-h-[640px] items-end overflow-hidden bg-cover bg-center md:mt-20"
+        style="
+          background-image: url(&quot;/assets/images/collections/magic-mushrooms-1.png&quot;);
+        "
+      >
+        <div
+          class="via-accent/40 to-accent absolute inset-0 bg-gradient-to-b from-transparent"
+          aria-hidden="true"
+        ></div>
+
+        <div
+          class="container-x relative z-10 flex flex-col gap-[30px] pt-[300px] pb-10 md:flex-row md:items-end md:justify-between md:pb-[60px]"
+        >
+          <div>
+            <span
+              class="bg-bg-2 inline-flex items-center gap-3 rounded-[20px] px-5 py-2.5 text-base"
+            >
+              <img
+                src="/assets/images/creators/shroomie.png"
+                alt=""
+                class="size-6 rounded-full object-cover"
+                width="24"
+                height="24"
+              />
+              Shroomie
+            </span>
+            <h2
+              class="mt-[30px] text-[38px] leading-tight font-semibold capitalize lg:text-[51px]"
+            >
+              Magic Mashrooms
+            </h2>
+            <a
+              href="#discover"
+              class="btn-white mt-[30px] hidden md:inline-flex"
+            >
+              <svg
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M1 10s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z" />
+                <circle cx="10" cy="10" r="3" />
+              </svg>
+              See NFT
+            </a>
+          </div>
+
+          <!-- Countdown -->
+          <div
+            id="countdown"
+            class="bg-bg/50 w-full rounded-[20px] p-[30px] backdrop-blur-md md:w-[295px]"
+            role="timer"
+            aria-live="off"
+          >
+            <p class="font-mono text-xs">Auction ends in:</p>
+            <div class="mt-2.5 flex items-start gap-2.5 font-mono">
+              <div class="min-w-[56px]">
+                <p class="text-[38px] leading-none font-bold" data-unit="hours">
+                  59
+                </p>
+                <p class="mt-1.5 text-xs">Hours</p>
+              </div>
+              <span class="text-[38px] leading-none font-bold">:</span>
+              <div class="min-w-[56px]">
+                <p
+                  class="text-[38px] leading-none font-bold"
+                  data-unit="minutes"
+                >
+                  59
+                </p>
+                <p class="mt-1.5 text-xs">Minutes</p>
+              </div>
+              <span class="text-[38px] leading-none font-bold">:</span>
+              <div class="min-w-[56px]">
+                <p
+                  class="text-[38px] leading-none font-bold"
+                  data-unit="seconds"
+                >
+                  59
+                </p>
+                <p class="mt-1.5 text-xs">Seconds</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="#discover" class="btn-white w-full md:hidden">
+            <svg
+              class="size-5"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M1 10s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z" />
+              <circle cx="10" cy="10" r="3" />
+            </svg>
+            See NFT
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= HOW IT WORKS ================= -->
+      <section id="how-it-works" class="py-10 md:py-20">
+        <div class="container-x">
+          <h2 class="section-title">How It Works</h2>
+          <p class="section-subtitle">Find Out How To Get Started</p>
+
+          <div
+            class="mt-10 grid grid-cols-1 gap-5 md:mt-[60px] md:grid-cols-3 md:gap-[30px]"
+          >
+            <article
+              class="bg-bg-2 flex items-center gap-5 rounded-[20px] p-5 md:flex-col md:p-[30px] md:text-center"
+            >
+              <div
+                class="from-accent flex size-[100px] shrink-0 items-center justify-center rounded-full bg-gradient-to-br to-[#ff6250] md:size-[160px] lg:size-[250px]"
+              >
+                <svg
+                  class="size-12 text-white md:size-20 lg:size-[120px]"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="6" y="12" width="36" height="26" rx="4" />
+                  <path d="M6 20h36M30 28h6" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-base font-semibold md:text-[22px]">
+                  Setup Your Wallet
+                </h3>
+                <p class="mt-2.5 text-xs md:text-base">
+                  Set up your wallet of choice. Connect it to the Animarket by
+                  clicking the wallet icon in the top right corner.
+                </p>
+              </div>
+            </article>
+
+            <article
+              class="bg-bg-2 flex items-center gap-5 rounded-[20px] p-5 md:flex-col md:p-[30px] md:text-center"
+            >
+              <div
+                class="from-accent flex size-[100px] shrink-0 items-center justify-center rounded-full bg-gradient-to-br to-[#ff6250] md:size-[160px] lg:size-[250px]"
+              >
+                <svg
+                  class="size-12 text-white md:size-20 lg:size-[120px]"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M6 14a3 3 0 0 1 3-3h10l4 4h16a3 3 0 0 1 3 3v20a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3z"
+                  />
+                  <path d="M24 22v12M18 28h12" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-base font-semibold md:text-[22px]">
+                  Create Collection
+                </h3>
+                <p class="mt-2.5 text-xs md:text-base">
+                  Upload your work and setup your collection. Add a description,
+                  social links and floor price.
+                </p>
+              </div>
+            </article>
+
+            <article
+              class="bg-bg-2 flex items-center gap-5 rounded-[20px] p-5 md:flex-col md:p-[30px] md:text-center"
+            >
+              <div
+                class="from-accent flex size-[100px] shrink-0 items-center justify-center rounded-full bg-gradient-to-br to-[#ff6250] md:size-[160px] lg:size-[250px]"
+              >
+                <svg
+                  class="size-12 text-white md:size-20 lg:size-[120px]"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M6 10h6l5 20h20l4-14H15" />
+                  <circle cx="20" cy="38" r="2.5" />
+                  <circle cx="34" cy="38" r="2.5" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-base font-semibold md:text-[22px]">
+                  Start Earning
+                </h3>
+                <p class="mt-2.5 text-xs md:text-base">
+                  Choose between auctions and fixed-price listings. Start
+                  earning by selling your NFTs or trading others.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SUBSCRIBE WIDGET ================= -->
+      <section id="subscribe" class="py-10 md:py-20">
+        <div class="container-x">
+          <div
+            class="md:bg-bg-2 grid grid-cols-1 gap-[30px] rounded-[20px] md:grid-cols-2 md:items-center md:p-10 lg:p-[60px]"
+          >
+            <img
+              src="/assets/images/nfts/astro-fiction.png"
+              alt="Astronaut reading a newspaper"
+              class="aspect-[425/310] w-full rounded-[20px] object-cover"
+              width="425"
+              height="310"
+            />
+            <div>
+              <h2 class="section-title">Join Our Weekly Digest</h2>
+              <p class="section-subtitle">
+                Get Exclusive Promotions &amp; Updates Straight To Your Inbox.
+              </p>
+
+              <form
+                id="digest-form"
+                class="mt-10 flex flex-col gap-4 md:mt-[30px] md:flex-row md:gap-0"
+                novalidate
+              >
+                <label class="sr-only" for="digest-email">Email address</label>
+                <input
+                  id="digest-email"
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email here"
+                  required
+                  class="text-bg placeholder:text-caption h-[60px] w-full rounded-[20px] bg-white px-5 text-base outline-none md:-mr-5"
+                />
+                <button type="submit" class="btn-primary shrink-0 md:h-[60px]">
+                  <svg
+                    class="size-5"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="2" y="4" width="16" height="12" rx="2" />
+                    <path d="M2 6l8 6 8-6" />
+                  </svg>
+                  Subscribe
+                </button>
+              </form>
+              <p id="digest-message" class="mt-3 min-h-[20px] text-sm"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-bg-2 py-10">
+      <div class="container-x">
+        <div class="grid grid-cols-1 gap-[30px] md:grid-cols-[1.2fr_1fr_1.4fr]">
+          <div>
+            <a
+              href="/"
+              class="flex items-center gap-2.5 font-mono text-xl font-bold"
+            >
+              <svg
+                class="text-accent size-8"
+                viewBox="0 0 32 32"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 14v12h22V14" />
+                <path
+                  d="M3 11l2-6h22l2 6c0 2-1.5 3.5-3.5 3.5S22 13 22 11c0 2-1.5 3.5-3.5 3.5S15 13 15 11c0 2-1.5 3.5-3.5 3.5S8 13 8 11c0 2-1.5 3.5-3.5 3.5S1 13 1 11"
+                />
+                <path d="M13 26v-7h6v7" />
+              </svg>
+              NFT Marketplace
+            </a>
+            <p class="text-caption mt-[30px] max-w-[240px] text-base">
+              NFT marketplace UI created with Anima for Figma.
+            </p>
+            <p class="text-caption mt-5 text-base">Join our community</p>
+            <div class="text-caption mt-4 flex items-center gap-2.5">
+              <a href="#" aria-label="Discord" class="hover:text-white">
+                <svg
+                  class="size-8"
+                  viewBox="0 0 32 32"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M26.6 7.6A24 24 0 0 0 20.7 6l-.3.6a22 22 0 0 1 5.4 2.7 20 20 0 0 0-19.6 0A22 22 0 0 1 11.6 6.6L11.3 6a24 24 0 0 0-5.9 1.6C1.7 13.2.7 18.6 1.2 24a24 24 0 0 0 7.3 3.7l1.5-2.4a15 15 0 0 1-2.4-1.2l.6-.4a17 17 0 0 0 15.6 0l.6.4-2.4 1.2 1.5 2.4a24 24 0 0 0 7.3-3.7c.6-6.2-1-11.6-4.2-16.4ZM11 20.7c-1.4 0-2.6-1.3-2.6-3s1.1-3 2.6-3 2.6 1.4 2.6 3-1.2 3-2.6 3Zm10 0c-1.4 0-2.6-1.3-2.6-3s1.1-3 2.6-3 2.6 1.4 2.6 3-1.2 3-2.6 3Z"
+                  />
+                </svg>
+              </a>
+              <a href="#" aria-label="YouTube" class="hover:text-white">
+                <svg
+                  class="size-8"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="8" width="26" height="17" rx="5" />
+                  <path d="M13 12v9l8-4.5z" fill="currentColor" />
+                </svg>
+              </a>
+              <a href="#" aria-label="Twitter" class="hover:text-white">
+                <svg
+                  class="size-8"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M29 8.5c-1 .5-2 .8-3 .9a5.3 5.3 0 0 0 2.3-2.9c-1 .6-2.2 1-3.4 1.3a5.3 5.3 0 0 0-9 4.8A15 15 0 0 1 5 7a5.3 5.3 0 0 0 1.6 7 5 5 0 0 1-2.4-.6 5.3 5.3 0 0 0 4.2 5.2 5 5 0 0 1-2.4.1 5.3 5.3 0 0 0 5 3.7A10.6 10.6 0 0 1 3 24.6 15 15 0 0 0 26 12v-.7c1.2-.8 2.2-1.7 3-2.8Z"
+                  />
+                </svg>
+              </a>
+              <a href="#" aria-label="Instagram" class="hover:text-white">
+                <svg
+                  class="size-8"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="4" y="4" width="24" height="24" rx="7" />
+                  <circle cx="16" cy="16" r="5.5" />
+                  <circle cx="23" cy="9" r="1" fill="currentColor" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="font-mono text-[22px] font-bold">Explore</h3>
+            <ul class="text-caption mt-[30px] flex flex-col gap-5 text-base">
+              <li>
+                <a href="#discover" class="hover:text-white">Marketplace</a>
+              </li>
+              <li>
+                <a href="#top-creators" class="hover:text-white">Rankings</a>
+              </li>
+              <li>
+                <a href="#how-it-works" class="hover:text-white"
+                  >Connect a wallet</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-mono text-[22px] font-bold">
+              Join Our Weekly Digest
+            </h3>
+            <p class="text-caption mt-[30px] text-base">
+              Get exclusive promotions &amp; updates straight to your inbox.
+            </p>
+            <form
+              id="footer-digest-form"
+              class="mt-5 flex flex-col gap-4 md:flex-row md:gap-0"
+              novalidate
+            >
+              <label class="sr-only" for="footer-digest-email"
+                >Email address</label
+              >
+              <input
+                id="footer-digest-email"
+                type="email"
+                name="email"
+                placeholder="Enter your email here"
+                required
+                class="text-bg placeholder:text-caption h-[60px] w-full rounded-[20px] bg-white px-5 text-base outline-none md:-mr-5"
+              />
+              <button type="submit" class="btn-primary shrink-0 px-[30px]">
+                Subscribe
+              </button>
+            </form>
+            <p id="footer-digest-message" class="mt-3 min-h-[20px] text-sm"></p>
+          </div>
+        </div>
+
+        <hr class="border-caption/40 my-[30px]" />
+        <p class="text-caption text-xs">
+          &copy; NFT Market. Use this template freely.
+        </p>
+      </div>
+    </footer>
+
+    <!-- ================= BACK TO TOP ================= -->
+    <button
+      id="back-to-top"
+      type="button"
+      class="bg-accent hover:bg-accent-dark fixed right-6 bottom-6 z-40 flex size-12 items-center justify-center rounded-full text-white shadow-lg md:right-10 md:bottom-10"
+      data-visible="false"
+      aria-label="Back to top"
+    >
+      <svg
+        class="size-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M12 19V5M5 12l7-7 7 7" />
+      </svg>
+    </button>
+  </body>
 </html>

@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Create your NFT Marketplace account and start creating, collecting and selling NFTs."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/css/style.css" />
+
+    <script type="module" src="/src/js/signup.js"></script>
+
+    <title>Create Account | NFT Marketplace</title>
+  </head>
+  <body>
+    <!-- ================= HEADER ================= -->
+    <header
+      id="site-header"
+      class="bg-bg sticky top-0 z-50 transition-shadow duration-300"
+    >
+      <div
+        class="flex h-[54px] items-center justify-between px-[30px] md:h-[100px] lg:px-[50px]"
+      >
+        <a
+          href="/"
+          class="flex items-center gap-2.5 font-mono text-base font-bold whitespace-nowrap md:text-xl"
+        >
+          <svg
+            class="text-accent size-6 md:size-8"
+            viewBox="0 0 32 32"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 14v12h22V14" />
+            <path
+              d="M3 11l2-6h22l2 6c0 2-1.5 3.5-3.5 3.5S22 13 22 11c0 2-1.5 3.5-3.5 3.5S15 13 15 11c0 2-1.5 3.5-3.5 3.5S8 13 8 11c0 2-1.5 3.5-3.5 3.5S1 13 1 11"
+            />
+            <path d="M13 26v-7h6v7" />
+          </svg>
+          <span>NFT Marketplace</span>
+        </a>
+
+        <nav
+          class="hidden items-center gap-0 whitespace-nowrap md:flex lg:gap-2.5"
+          aria-label="Primary"
+        >
+          <a
+            href="/#discover"
+            class="hover:text-accent px-3 py-3 text-sm font-semibold lg:px-5 lg:text-base"
+            >Marketplace</a
+          >
+          <a
+            href="/#top-creators"
+            class="hover:text-accent px-3 py-3 text-sm font-semibold lg:px-5 lg:text-base"
+            >Rankings</a
+          >
+          <a
+            href="/#how-it-works"
+            class="hover:text-accent px-3 py-3 text-sm font-semibold lg:px-5 lg:text-base"
+            >Connect a wallet</a
+          >
+          <a
+            href="/signup.html"
+            class="btn-primary ml-2.5 h-[50px] px-5 lg:h-[60px] lg:px-[30px]"
+            aria-current="page"
+          >
+            <svg
+              class="size-5"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="10" cy="7" r="4" />
+              <path d="M3 18c1.2-3.2 3.8-5 7-5s5.8 1.8 7 5" />
+            </svg>
+            Sign Up
+          </a>
+        </nav>
+
+        <button
+          id="menu-toggle"
+          type="button"
+          class="flex size-10 items-center justify-center text-white md:hidden"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg
+            class="size-7"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path data-icon="open" d="M4 7h16M4 12h16M4 17h16" />
+            <path data-icon="close" class="hidden" d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </div>
+
+      <nav
+        id="mobile-menu"
+        class="mobile-menu border-bg-2 bg-bg absolute inset-x-0 top-full flex flex-col gap-2 border-t px-[30px] pt-4 pb-6 md:hidden"
+        data-open="false"
+        aria-label="Mobile"
+      >
+        <a
+          href="/#discover"
+          class="hover:bg-bg-2 rounded-xl px-4 py-3 font-semibold"
+          >Marketplace</a
+        >
+        <a
+          href="/#top-creators"
+          class="hover:bg-bg-2 rounded-xl px-4 py-3 font-semibold"
+          >Rankings</a
+        >
+        <a
+          href="/#how-it-works"
+          class="hover:bg-bg-2 rounded-xl px-4 py-3 font-semibold"
+          >Connect a wallet</a
+        >
+      </nav>
+    </header>
+
+    <!-- ================= CREATE ACCOUNT ================= -->
+    <main class="grid grid-cols-1 md:grid-cols-2">
+      <img
+        src="/assets/images/nfts/life-on-edena.png"
+        alt="Astronauts exploring a distant planet"
+        class="h-[232px] w-full object-cover md:h-full md:min-h-[640px]"
+        width="640"
+        height="640"
+      />
+
+      <div
+        class="px-[30px] py-10 md:px-[60px] md:py-[100px] lg:pr-[115px] lg:pl-[60px]"
+      >
+        <h1 class="section-title">Create Account</h1>
+        <p class="section-subtitle">
+          Welcome! Enter Your Details And Start Creating, Collecting And Selling
+          NFTs.
+        </p>
+
+        <form id="signup-form" class="mt-[30px] max-w-[330px]" novalidate>
+          <div class="flex flex-col gap-1">
+            <label class="sr-only" for="username">Username</label>
+            <div class="field">
+              <svg
+                class="text-caption size-5 shrink-0"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="10" cy="7" r="4" />
+                <path d="M3 18c1.2-3.2 3.8-5 7-5s5.8 1.8 7 5" />
+              </svg>
+              <input
+                id="username"
+                name="username"
+                type="text"
+                placeholder="Username"
+                autocomplete="username"
+                required
+              />
+            </div>
+            <p class="field-error" data-error-for="username"></p>
+          </div>
+
+          <div class="mt-2 flex flex-col gap-1">
+            <label class="sr-only" for="email">Email Address</label>
+            <div class="field">
+              <svg
+                class="text-caption size-5 shrink-0"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="2" y="4" width="16" height="12" rx="2" />
+                <path d="M2 6l8 6 8-6" />
+              </svg>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Email Address"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <p class="field-error" data-error-for="email"></p>
+          </div>
+
+          <div class="mt-2 flex flex-col gap-1">
+            <label class="sr-only" for="password">Password</label>
+            <div class="field">
+              <svg
+                class="text-caption size-5 shrink-0"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="4" y="9" width="12" height="9" rx="2" />
+                <path d="M7 9V6a3 3 0 0 1 6 0v3" />
+              </svg>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Password"
+                autocomplete="new-password"
+                required
+              />
+            </div>
+            <p class="field-error" data-error-for="password"></p>
+          </div>
+
+          <div class="mt-2 flex flex-col gap-1">
+            <label class="sr-only" for="confirm-password"
+              >Confirm Password</label
+            >
+            <div class="field">
+              <svg
+                class="text-caption size-5 shrink-0"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="4" y="9" width="12" height="9" rx="2" />
+                <path d="M7 9V6a3 3 0 0 1 6 0v3" />
+              </svg>
+              <input
+                id="confirm-password"
+                name="confirmPassword"
+                type="password"
+                placeholder="Confirm Password"
+                autocomplete="new-password"
+                required
+              />
+            </div>
+            <p class="field-error" data-error-for="confirmPassword"></p>
+          </div>
+
+          <button
+            id="signup-submit"
+            type="submit"
+            class="btn-primary mt-4 h-[46px] w-full rounded-[20px] px-6 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            Create account
+          </button>
+
+          <p
+            id="signup-message"
+            class="mt-4 min-h-[22px] text-sm"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </form>
+      </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-bg-2 py-10">
+      <div class="container-x">
+        <div class="grid grid-cols-1 gap-[30px] md:grid-cols-[1.2fr_1fr_1.4fr]">
+          <div>
+            <a
+              href="/"
+              class="flex items-center gap-2.5 font-mono text-xl font-bold"
+            >
+              <svg
+                class="text-accent size-8"
+                viewBox="0 0 32 32"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 14v12h22V14" />
+                <path
+                  d="M3 11l2-6h22l2 6c0 2-1.5 3.5-3.5 3.5S22 13 22 11c0 2-1.5 3.5-3.5 3.5S15 13 15 11c0 2-1.5 3.5-3.5 3.5S8 13 8 11c0 2-1.5 3.5-3.5 3.5S1 13 1 11"
+                />
+                <path d="M13 26v-7h6v7" />
+              </svg>
+              NFT Marketplace
+            </a>
+            <p class="text-caption mt-[30px] max-w-[240px] text-base">
+              NFT marketplace UI created with Anima for Figma.
+            </p>
+            <p class="text-caption mt-5 text-base">Join our community</p>
+            <div class="text-caption mt-4 flex items-center gap-2.5">
+              <a href="#" aria-label="Discord" class="hover:text-white">
+                <svg
+                  class="size-8"
+                  viewBox="0 0 32 32"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M26.6 7.6A24 24 0 0 0 20.7 6l-.3.6a22 22 0 0 1 5.4 2.7 20 20 0 0 0-19.6 0A22 22 0 0 1 11.6 6.6L11.3 6a24 24 0 0 0-5.9 1.6C1.7 13.2.7 18.6 1.2 24a24 24 0 0 0 7.3 3.7l1.5-2.4a15 15 0 0 1-2.4-1.2l.6-.4a17 17 0 0 0 15.6 0l.6.4-2.4 1.2 1.5 2.4a24 24 0 0 0 7.3-3.7c.6-6.2-1-11.6-4.2-16.4ZM11 20.7c-1.4 0-2.6-1.3-2.6-3s1.1-3 2.6-3 2.6 1.4 2.6 3-1.2 3-2.6 3Zm10 0c-1.4 0-2.6-1.3-2.6-3s1.1-3 2.6-3 2.6 1.4 2.6 3-1.2 3-2.6 3Z"
+                  />
+                </svg>
+              </a>
+              <a href="#" aria-label="YouTube" class="hover:text-white">
+                <svg
+                  class="size-8"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="8" width="26" height="17" rx="5" />
+                  <path d="M13 12v9l8-4.5z" fill="currentColor" />
+                </svg>
+              </a>
+              <a href="#" aria-label="Twitter" class="hover:text-white">
+                <svg
+                  class="size-8"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M29 8.5c-1 .5-2 .8-3 .9a5.3 5.3 0 0 0 2.3-2.9c-1 .6-2.2 1-3.4 1.3a5.3 5.3 0 0 0-9 4.8A15 15 0 0 1 5 7a5.3 5.3 0 0 0 1.6 7 5 5 0 0 1-2.4-.6 5.3 5.3 0 0 0 4.2 5.2 5 5 0 0 1-2.4.1 5.3 5.3 0 0 0 5 3.7A10.6 10.6 0 0 1 3 24.6 15 15 0 0 0 26 12v-.7c1.2-.8 2.2-1.7 3-2.8Z"
+                  />
+                </svg>
+              </a>
+              <a href="#" aria-label="Instagram" class="hover:text-white">
+                <svg
+                  class="size-8"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="4" y="4" width="24" height="24" rx="7" />
+                  <circle cx="16" cy="16" r="5.5" />
+                  <circle cx="23" cy="9" r="1" fill="currentColor" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="font-mono text-[22px] font-bold">Explore</h3>
+            <ul class="text-caption mt-[30px] flex flex-col gap-5 text-base">
+              <li>
+                <a href="/#discover" class="hover:text-white">Marketplace</a>
+              </li>
+              <li>
+                <a href="/#top-creators" class="hover:text-white">Rankings</a>
+              </li>
+              <li>
+                <a href="/#how-it-works" class="hover:text-white"
+                  >Connect a wallet</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-mono text-[22px] font-bold">
+              Join Our Weekly Digest
+            </h3>
+            <p class="text-caption mt-[30px] text-base">
+              Get exclusive promotions &amp; updates straight to your inbox.
+            </p>
+            <form
+              id="footer-digest-form"
+              class="mt-5 flex flex-col gap-4 md:flex-row md:gap-0"
+              novalidate
+            >
+              <label class="sr-only" for="footer-digest-email"
+                >Email address</label
+              >
+              <input
+                id="footer-digest-email"
+                type="email"
+                name="email"
+                placeholder="Enter your email here"
+                required
+                class="text-bg placeholder:text-caption h-[60px] w-full rounded-[20px] bg-white px-5 text-base outline-none md:-mr-5"
+              />
+              <button type="submit" class="btn-primary shrink-0 px-[30px]">
+                Subscribe
+              </button>
+            </form>
+            <p id="footer-digest-message" class="mt-3 min-h-[20px] text-sm"></p>
+          </div>
+        </div>
+
+        <hr class="border-caption/40 my-[30px]" />
+        <p class="text-caption text-xs">
+          &copy; NFT Market. Use this template freely.
+        </p>
+      </div>
+    </footer>
+
+    <button
+      id="back-to-top"
+      type="button"
+      class="bg-accent hover:bg-accent-dark fixed right-6 bottom-6 z-40 flex size-12 items-center justify-center rounded-full text-white shadow-lg md:right-10 md:bottom-10"
+      data-visible="false"
+      aria-label="Back to top"
+    >
+      <svg
+        class="size-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M12 19V5M5 12l7-7 7 7" />
+      </svg>
+    </button>
+  </body>
+</html>

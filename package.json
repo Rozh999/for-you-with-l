@@ -15,16 +15,19 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build:tw && vite build",
     "preview": "vite preview",
+    "build:tw": "npx @tailwindcss/cli -i src/css/main.css -o src/css/style.css --minify",
     "watch:tw": "npx @tailwindcss/cli -i src/css/main.css -o src/css/style.css --watch",
-    "watch:users-api": "json-server --watch public/assets/data/users.json --port 3000"
+    "watch:users-api": "json-server --watch public/assets/data/users.json --port 3000",
+    "start": "concurrently -n vite,tw,api \"vite\" \"npm run watch:tw\" \"npm run watch:users-api\""
   },
   "dependencies": {
     "axios": "^1.20.0"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",
+    "concurrently": "^10.0.5",
     "json-server": "^1.0.0-beta.15",
     "prettier": "^3.9.6",
     "prettier-plugin-tailwindcss": "^0.8.1",
