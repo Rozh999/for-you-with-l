@@ -3,3 +3,7 @@ dist
 .env
 .env.local
 .DS_Store
+
+# heavy images: only the shared placeholder is tracked
+public/assets/images/*
+!public/assets/images/placeholder.png
